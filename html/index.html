@@ -18,6 +18,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#diensten">Diensten</a></li>
                     <li><a href="over-ons.html">Over Ons</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
             </nav>
@@ -25,6 +26,14 @@
     </header>
 
     <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Datagedreven Groei voor Nederlandse mkb's</h1>
+                <p>Zet uw data om in werkelijke kansen. Dashboards, automatisering en strategie in één schaalbaar abonnement.</p>
+                <a href="#contact" class="btn-cta">Maak een afspraak</a>
+            </div>
+        </section>
+
         <section id="diensten" class="services">
             <div class="container">
                 <div class="section-header">
@@ -36,16 +45,45 @@
                         <i class="fas fa-chart-line"></i>
                         <h3>Data Analyse</h3>
                         <p>Overzichtelijke Power BI dashboards die inzicht geven in omzet, marges en kosten. Stop met gissen, start met sturen op feiten.</p>
+                        <a href="data-analyse.html" class="btn-link">Meer informatie →</a>
                     </div>
                     <div class="card">
                         <i class="fas fa-robot"></i>
                         <h3>Procesautomatisering</h3>
                         <p>Bespaar tijd door repetitieve taken te automatiseren met AI en RPA. Van e-mail classificatie tot automatische offertes.</p>
+                        <a href="procesautomatisering.html" class="btn-link">Meer informatie →</a>
                     </div>
                     <div class="card">
                         <i class="fas fa-layer-group"></i>
                         <h3>VDM Fusion</h3>
                         <p>De krachtige combinatie van inzicht én efficiëntie. Dashboards en automatisering in één schaalbaar abonnement.</p>
+                        <a href="vdm-fusion.html" class="btn-link">Meer informatie →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Waarom VDM Analytics</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="grid-3">
+                    <div class="benefit-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Snelle Implementatie</h3>
+                        <p>Binnen 2-3 weken operationeel. Geen lange voorbereidingsfases, we beginnen meteen.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Dedicated Partner</h3>
+                        <p>Timo en Steyn zijn jouw vaste aanspreekpunt. Niet uitbesteed aan callcenters.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Bewezen Impact</h3>
+                        <p>Onze klanten zien gemiddeld 15-20% efficiëntieverbetering en betere inzichten in 3 maanden.</p>
                     </div>
                 </div>
             </div>
@@ -119,7 +157,37 @@
                     </div>
                 </div>
                 <div class="pricing-footer">
-                    <p>Op zoek naar procesautomatisering of maatwerk? <a href="#contact">Bekijk VDM Automate & Enterprise.</a></p>
+                    <p>Op zoek naar procesautomatisering of maatwerk? <a href="#contact">Contact us voor VDM Automate & Enterprise.</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-text">
+                        <h2>Klaar om te groeien?</h2>
+                        <p>Vul je gegevens in en we nemen zo snel mogelijk contact op. Geen verplichtingen, puur advies.</p>
+                    </div>
+                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="name">Uw naam</label>
+                            <input type="text" id="name" name="name" placeholder="Jan Jansen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Bedrijfsnaam</label>
+                            <input type="text" id="company" name="company" placeholder="Uw bedrijf" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mailadres</label>
+                            <input type="email" id="email" name="email" placeholder="jan@bedrijf.nl" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Bericht (optioneel)</label>
+                            <textarea id="message" name="message" placeholder="Vertel ons wat je nodig hebt..." rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-cta">Stuur bericht</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -148,13 +216,11 @@
                         </ul>
                     </div>
                 </div>
-            </main>
-        <div class="footer-bottom">
-            &copy; 2026 VDM Analytics. Alle rechten voorbehouden.
+            <div class="footer-bottom">
+                &copy; 2026 VDM Analytics. Alle rechten voorbehouden.
             </div>
-        </div>
-    </footer>
-
+        </footer>
+    </main>
     <script src="../JS/navbar.js"></script>
 </body>
 </html>

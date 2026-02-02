@@ -30,6 +30,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    overflow: visible;
 }
 
 .container {
@@ -187,9 +188,18 @@ nav {
 
 .card h3 { margin-bottom: 15px; color: var(--primary-blue); }
 
-.about {
-    padding: 80px 0;
+.btn-link {
+    display: inline-block;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-top: 15px;
+    transition: color 0.3s;
 }
+
+.btn-link:hover {
+    color: var(--accent-green);
+}
+
 .about-content {
     display: flex;
     align-items: center;
@@ -322,15 +332,22 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 25px;
-        position: fixed;
+        position: absolute;
         top: 80px;
         left: 0;
         width: 100%;
-        height: auto;
         background: var(--white);
         padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        z-index: 1000;
+        z-index: 1001;
+    }
+
+    main {
+        transition: padding-top 0.3s ease;
+    }
+
+    main.menu-open {
+        padding-top: 280px;
     }
 
     .hamburger { 
@@ -513,5 +530,415 @@ footer {
 
     .mission-content p {
         text-align: left;
+    }
+}
+
+/* Why Us Section */
+.why-us {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.benefit-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-bottom: 4px solid transparent;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border-bottom: 4px solid var(--accent-green);
+}
+
+.benefit-card i {
+    font-size: 48px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.benefit-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-text {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-text h2 {
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.contact-text p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    color: var(--text-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0 0 5px rgba(0, 210, 106, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form .btn-cta {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.contact-form .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(19, 40, 69, 0.3);
+}
+
+/* Service Page Styles */
+.hero-service {
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0a1525 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-service h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-service p {
+    font-size: 1.2rem;
+    color: #d0dbe6;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.service-intro {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-content h2 {
+    color: var(--primary-blue);
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.intro-content p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.feature-list i {
+    color: var(--accent-green);
+    font-size: 1.3rem;
+}
+
+.service-benefits {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.service-use-cases {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.use-case-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid var(--accent-green);
+}
+
+.use-case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.use-case-card i {
+    font-size: 48px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.use-case-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.use-case-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.service-process {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.step {
+    position: relative;
+    text-align: center;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-green);
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.step h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.step p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.service-roi {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.roi-example {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.roi-box {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    background: var(--light-bg);
+    border-radius: 10px;
+}
+
+.roi-box.highlight {
+    background: linear-gradient(135deg, var(--accent-green) 0%, rgba(0, 210, 106, 0.8) 100%);
+    color: var(--white);
+}
+
+.roi-box.highlight h3 {
+    color: var(--white);
+}
+
+.roi-box.highlight li {
+    color: var(--white);
+}
+
+.roi-box h3 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.roi-box ul {
+    list-style: none;
+}
+
+.roi-box li {
+    margin-bottom: 12px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.roi-box li:before {
+    content: "✓";
+    color: var(--accent-green);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.roi-box.highlight li:before {
+    color: var(--white);
+}
+
+.roi-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--accent-green);
+}
+
+.roi-conclusion {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(0, 210, 106, 0.1);
+    border-left: 4px solid var(--accent-green);
+}
+
+.service-pricing {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.pricing-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0a1525 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+.service-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.service-cta p {
+    font-size: 1.1rem;
+    color: #d0dbe6;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .hero-service h1 {
+        font-size: 2rem;
+    }
+
+    .roi-example {
+        flex-direction: column;
+    }
+
+    .roi-arrow {
+        transform: rotate(90deg);
+    }
+
+    .process-steps {
+        grid-template-columns: 1fr;
     }
 }
