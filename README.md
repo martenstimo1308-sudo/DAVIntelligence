@@ -1,2 +1,2 @@
 # VDMAnalytics
-Repo for the company VDM Analytics
+Repo for the company "VDM Analytics"
