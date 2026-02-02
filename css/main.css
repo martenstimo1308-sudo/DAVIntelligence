@@ -46,6 +46,11 @@ nav {
     height: 80px;
 }
 
+    
+    /* When menu is open, push content down to make room for nav */
+    main.menu-open {
+        padding-top: 220px;
+    }
 .logo {
     font-size: 24px;
     font-weight: 800;
@@ -55,6 +60,12 @@ nav {
     gap: 5px;
     text-decoration: none;
     cursor: pointer;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
 }
 
 .logo:hover {
@@ -923,6 +934,88 @@ footer {
     font-size: 1.1rem;
     color: #d0dbe6;
     margin-bottom: 40px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 4px solid var(--accent-green);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.testimonial-content {
+    margin-bottom: 20px;
+}
+
+.testimonial-content p {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.testimonial-author {
+    text-align: right;
+}
+
+.testimonial-author strong {
+    display: block;
+    color: var(--primary-blue);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.testimonial-author span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Contact Form Loading States */
+.contact-form .btn-cta.btn-loading {
+    position: relative;
+    cursor: not-allowed;
+}
+
+.contact-form .btn-cta.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid transparent;
+    border-top: 2px solid var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Form Success Message */
+.form-success {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
