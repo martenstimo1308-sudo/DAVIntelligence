@@ -220,15 +220,22 @@ nav {
 .about-text { flex: 1; }
 .about-image { 
     flex: 1; 
-    background-color: #eee; 
-    height: 300px; 
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
+    min-width: 300px;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
-.about-image i { font-size: 100px; color: #ddd; }
+.about-image:hover {
+    transform: scale(1.02);
+}
+.about-image-content {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
 .link-arrow { color: var(--primary-blue); font-weight: 700; }
 
 .pricing {
