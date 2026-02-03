@@ -220,15 +220,22 @@ nav {
 .about-text { flex: 1; }
 .about-image { 
     flex: 1; 
-    background-color: #eee; 
-    height: 300px; 
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
+    min-width: 300px;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
-.about-image i { font-size: 100px; color: #ddd; }
+.about-image:hover {
+    transform: scale(1.02);
+}
+.about-image-content {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
 .link-arrow { color: var(--primary-blue); font-weight: 700; }
 
 .pricing {
@@ -368,6 +375,91 @@ footer {
     
     .hero h1 { font-size: 2rem; }
     .about-content { flex-direction: column; }
+}
+
+/* Enhanced mobile typography for better readability on phones like iPhone 12 */
+@media (max-width: 480px) {
+    /* Increase hero text for better visibility */
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1.1rem; }
+    .hero-service h1 { font-size: 2.2rem; }
+    .hero-service p { font-size: 1.1rem; }
+    .hero-about h1 { font-size: 2.2rem; }
+    .hero-about p { font-size: 1.1rem; }
+    
+    /* Increase navigation font size */
+    .nav-links a { font-size: 16px; }
+    
+    /* Increase section headers */
+    .section-header h2 { font-size: 2rem; }
+    .mission-content h2 { font-size: 2rem; }
+    .why-us h2 { font-size: 2rem; }
+    .testimonials h2 { font-size: 2rem; }
+    .contact-section h2 { font-size: 2rem; }
+    
+    /* Expertise section - ensure proper stacking and readability */
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* Increase card content for better readability */
+    .card {
+        padding: 30px;
+        margin-bottom: 20px;
+    }
+    .card h3 { font-size: 1.4rem; }
+    .card p { font-size: 16px; line-height: 1.8; }
+    .card i { font-size: 45px; }
+    .benefit-card h3 { font-size: 1.2rem; }
+    .benefit-card p { font-size: 15px; line-height: 1.8; }
+    
+    /* Increase service page content */
+    .intro-content h2 { font-size: 1.8rem; }
+    .intro-content p { font-size: 16px; line-height: 1.8; }
+    .feature-list li { font-size: 15px; }
+    .use-case-card h3 { font-size: 1.1rem; }
+    .use-case-card p { font-size: 15px; line-height: 1.8; }
+    .step h3 { font-size: 1.1rem; }
+    .step p { font-size: 15px; line-height: 1.8; }
+    
+    /* Increase team member content */
+    .team-member h3 { font-size: 1.3rem; }
+    .team-member .bio { font-size: 15px; line-height: 1.8; }
+    
+    /* Increase contact form labels and inputs */
+    .form-group label { font-size: 15px; }
+    .form-group input,
+    .form-group textarea { font-size: 16px; padding: 14px; }
+    
+    /* Increase pricing content */
+    .price { font-size: 32px; }
+    .features-list li { font-size: 15px; }
+    
+    /* Increase testimonials */
+    .testimonial-content p { font-size: 15px; line-height: 1.8; }
+    .testimonial-author strong { font-size: 15px; }
+    .testimonial-author span { font-size: 14px; }
+    
+    /* Increase about page content */
+    .mission-content p { font-size: 16px; line-height: 1.8; }
+    
+    /* Increase button text for better tap targets */
+    .btn-cta { padding: 12px 28px; font-size: 16px; }
+    .btn-outline { padding: 12px 28px; font-size: 16px; }
+    .social-link { padding: 12px 24px; font-size: 16px; }
+}
+
+/* Additional optimization for very small screens */
+@media (max-width: 360px) {
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .section-header h2 { font-size: 1.8rem; }
+    .card h3 { font-size: 1.2rem; }
+    .card p { font-size: 14px; }
+    .form-group input,
+    .form-group textarea { font-size: 15px; padding: 12px; }
+    .price { font-size: 28px; }
 }
 
 .price-card {
