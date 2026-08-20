@@ -1,2 +1,3 @@
-# VDMAnalytics
-Repo for the company "VDM Analytics"
+﻿# DAV Intelligence
+Repo for the company "DAV Intelligence"
+
