@@ -263,6 +263,11 @@ nav {
     background-color: var(--light-bg);
 }
 
+.services .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 390px));
+    justify-content: center;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 60px;
@@ -677,6 +682,15 @@ footer {
     gap: 40px;
 }
 
+.team-intro {
+    max-width: 720px;
+    margin: -25px auto 45px;
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
 .team-member {
     background: var(--white);
     padding: 40px;
@@ -746,6 +760,19 @@ footer {
     margin-right: 8px;
 }
 
+.team-member .social-link {
+    background-color: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 9px 16px;
+    font-size: 0.9rem;
+}
+
+.team-member .social-link:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
 @media (max-width: 900px) {
     .hero-content {
         grid-template-columns: 1fr;
@@ -781,6 +808,33 @@ footer {
     line-height: 1.8;
     margin-bottom: 20px;
     text-align: justify;
+}
+
+.about-cta {
+    padding: 80px 0;
+    background-color: #f5fbf7;
+    border-top: 1px solid #dbeee1;
+    text-align: center;
+}
+
+.about-cta .container {
+    max-width: 760px;
+}
+
+.about-cta h2 {
+    color: #173f45;
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.about-cta p:not(.eyebrow) {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    margin: 0 auto 28px;
+}
+
+.about-cta .btn-cta i {
+    margin-left: 8px;
 }
 
 .team-photo {
@@ -1045,6 +1099,29 @@ footer {
 }
 
 @media (max-width: 600px) {
+    .contact-intro {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .contact-page-form {
+        min-width: 0;
+    }
+
+    .captcha-check,
+    .captcha-check iframe {
+        max-width: 100%;
+    }
+
+    .captcha-check {
+        overflow: hidden;
+    }
+
+    .captcha-check .g-recaptcha {
+        transform: scale(0.75);
+        transform-origin: left top;
+    }
+
     .contact-page-form {
         padding: 28px 22px;
     }
@@ -1496,12 +1573,36 @@ footer {
     animation: fadeIn 0.5s ease-in;
 }
 
+.form-status {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-status.form-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.form-status.form-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
+    .services .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .hero-service h1 {
         font-size: 2rem;
     }
