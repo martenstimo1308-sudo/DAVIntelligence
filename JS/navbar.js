@@ -4,12 +4,13 @@ const icon = document.querySelector('.hamburger i');
 const main = document.querySelector('main');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('open');
+    const isOpen = !navLinks.classList.contains('active');
+    navLinks.classList.toggle('active', isOpen);
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
     // Toggle class on main so the hero/content is pushed down when menu opens
     if (main) main.classList.toggle('menu-open');
-
-    const isOpen = navLinks.classList.contains('active');
 
     if (isOpen) {
         icon.classList.remove('fa-bars');
@@ -20,10 +21,20 @@ hamburger.addEventListener('click', () => {
     }
 });
 
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+        hamburger.click();
+        hamburger.focus();
+    }
+});
+
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         main.classList.remove('menu-open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Menu openen');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
     });
@@ -50,49 +61,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Contact form loading states
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
+            const originalContent = submitBtn.innerHTML;
+            const status = contactForm.querySelector('.form-status');
             
-            // Show loading state
             submitBtn.textContent = 'Versturen...';
             submitBtn.disabled = true;
             submitBtn.classList.add('btn-loading');
-            
-            // Reset after 3 seconds (Formspree handles the actual submission)
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { Accept: 'application/json' }
+                });
+
+                if (!response.ok) throw new Error('Form submission failed');
+
+                contactForm.reset();
+                status.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op.';
+                status.className = 'form-status form-success';
+            } catch (error) {
+                status.textContent = 'Er ging iets mis. Controleer je gegevens en probeer het opnieuw.';
+                status.className = 'form-status form-error';
+            } finally {
+                submitBtn.innerHTML = originalContent;
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('btn-loading');
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.className = 'form-success';
-                successMsg.textContent = 'Bedankt! We nemen zo snel mogelijk contact met u op.';
-                successMsg.style.cssText = `
-                    margin-top: 20px;
-                    padding: 15px;
-                    background-color: #d4edda;
-                    border: 1px solid #c3e6cb;
-                    color: #155724;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 600;
-                `;
-                
-                // Clear form
-                contactForm.reset();
-                
-                // Add success message below form
-                contactForm.appendChild(successMsg);
-                
-                // Remove success message after 5 seconds
-                setTimeout(() => {
-                    if (successMsg.parentNode) {
-                        successMsg.parentNode.removeChild(successMsg);
-                    }
-                }, 5000);
-            }, 3000);
+            }
         });
     }
 });
