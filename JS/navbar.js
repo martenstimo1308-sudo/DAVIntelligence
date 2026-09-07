@@ -1,9 +1,13 @@
+if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash);
+}
+
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const icon = document.querySelector('.hamburger i');
 const main = document.querySelector('main');
 
-hamburger.addEventListener('click', () => {
+if (hamburger && navLinks) hamburger.addEventListener('click', () => {
     const isOpen = !navLinks.classList.contains('active');
     navLinks.classList.toggle('active', isOpen);
     hamburger.classList.toggle('open', isOpen);
@@ -22,7 +26,7 @@ hamburger.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+    if (hamburger && navLinks && event.key === 'Escape' && navLinks.classList.contains('active')) {
         hamburger.click();
         hamburger.focus();
     }
@@ -31,7 +35,7 @@ document.addEventListener('keydown', (event) => {
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
-        main.classList.remove('menu-open');
+        if (main) main.classList.remove('menu-open');
         hamburger.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.setAttribute('aria-label', 'Menu openen');
@@ -63,10 +67,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            if (!contactForm.reportValidity()) return;
 
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalContent = submitBtn.innerHTML;
             const status = contactForm.querySelector('.form-status');
+
+            const trap = contactForm.querySelector('[name="_gotcha"]');
+            const timestamp = Number(contactForm.querySelector('[name="_ts"]')?.value || 0);
+            if ((trap && trap.value) || !timestamp || (Date.now() / 1000) - timestamp < 2) {
+                status.textContent = 'Controleer je formulier en probeer het opnieuw.';
+                status.className = 'form-status form-error';
+                return;
+            }
+
+            if (window.grecaptcha && !window.grecaptcha.getResponse()) {
+                status.textContent = 'Bevestig dat je geen robot bent.';
+                status.className = 'form-status form-error';
+                return;
+            }
             
             submitBtn.textContent = 'Versturen...';
             submitBtn.disabled = true;
