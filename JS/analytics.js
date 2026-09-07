@@ -24,14 +24,14 @@
     });
     window.gtag('set', 'ads_data_redaction', true);
     window.gtag('js', new Date());
-    window.gtag('config', 'G-GFJ072TDH3');
+    window.gtag('config', 'G-WNZYF6DMQX');
 
     function loadGoogleTag() {
         if (document.querySelector('script[data-ga4-analytics]')) return;
         const script = document.createElement('script');
         script.async = true;
         script.dataset.ga4Analytics = 'true';
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GFJ072TDH3';
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-WNZYF6DMQX';
         document.head.appendChild(script);
     }
 
