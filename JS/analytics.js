@@ -9,20 +9,39 @@
         storedConsent = null;
     }
 
-    function loadAnalytics() {
-        if (document.querySelector('script[data-ga4-analytics]')) return;
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = window.gtag || function () {
-            window.dataLayer.push(arguments);
-        };
-        window.gtag('js', new Date());
-        window.gtag('config', 'G-GFJ072TDH3');
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+        window.dataLayer.push(arguments);
+    };
 
+    // Consent Mode v2: Google starts denied and receives only the visitor's later choice.
+    window.gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+    });
+    window.gtag('set', 'ads_data_redaction', true);
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-GFJ072TDH3');
+
+    function loadGoogleTag() {
+        if (document.querySelector('script[data-ga4-analytics]')) return;
         const script = document.createElement('script');
         script.async = true;
         script.dataset.ga4Analytics = 'true';
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GFJ072TDH3';
         document.head.appendChild(script);
+    }
+
+    function updateGoogleConsent(value) {
+        window.gtag('consent', 'update', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: value === 'accepted' ? 'granted' : 'denied'
+        });
     }
 
     function setConsent(value) {
@@ -32,6 +51,7 @@
             // The banner still works when storage is blocked.
         }
         storedConsent = value;
+        updateGoogleConsent(value);
         const currentBanner = document.getElementById('cookie-banner');
         const currentSettings = document.getElementById('cookie-settings');
         if (currentBanner) {
@@ -42,7 +62,6 @@
             currentSettings.hidden = true;
             currentSettings.classList.add('is-hidden');
         }
-        if (value === 'accepted') loadAnalytics();
     }
 
     function openSettings() {
@@ -67,7 +86,8 @@
         }
     }
 
-    if (storedConsent === 'accepted') loadAnalytics();
+    loadGoogleTag();
+    if (storedConsent) updateGoogleConsent(storedConsent);
     if (!storedConsent && banner) banner.hidden = false;
     document.querySelectorAll('.cookie-accept, .cookie-accept-all').forEach(button => button.addEventListener('click', () => setConsent('accepted')));
     document.querySelectorAll('button.cookie-settings-button').forEach(button => button.addEventListener('click', openSettings));
