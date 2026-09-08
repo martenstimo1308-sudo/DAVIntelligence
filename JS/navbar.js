@@ -101,12 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!response.ok) throw new Error('Form submission failed');
 
                 contactForm.reset();
+                if (ts) ts.value = Math.floor(Date.now() / 1000);
                 status.textContent = 'Bedankt! We nemen zo snel mogelijk contact met je op.';
                 status.className = 'form-status form-success';
             } catch (error) {
                 status.textContent = 'Er ging iets mis. Controleer je gegevens en probeer het opnieuw.';
                 status.className = 'form-status form-error';
             } finally {
+                if (window.grecaptcha) window.grecaptcha.reset();
                 submitBtn.innerHTML = originalContent;
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('btn-loading');
