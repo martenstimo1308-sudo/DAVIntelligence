@@ -8,13 +8,18 @@
     <meta property="og:title" content="DAV Intelligence | Plan een kennismaking">
     <meta property="og:description" content="Bespreek je data- of procesvraag rechtstreeks met DAV Intelligence.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/dashboard.png">
+    <meta property="og:image" content="images/dashboard-optimized.jpg">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <title>DAV Intelligence | Contact</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"></noscript>
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header>
@@ -46,20 +51,20 @@
                 <div class="contact-intro">
                     <p class="eyebrow">We luisteren eerst</p>
                     <h2>Je spreekt direct met de mensen achter DAV</h2>
-                    <p>Geen ingewikkeld verkoopverhaal, maar een open gesprek over je bedrijf, je data en de kansen die je vandaag laat liggen.</p>
+                    <p>Een open gesprek over je organisatie, je vraag en wat een praktische volgende stap kan zijn. Je spreekt rechtstreeks met Timo of Steyn.</p>
                     <div class="contact-team">
                         <div class="contact-person">
-                            <img src="images/timo.jpg" alt="Timo Martens">
+                            <img src="images/timo.jpg" width="1024" height="1024" loading="lazy" alt="Timo Martens">
                             <div>
                                 <strong>Timo Martens</strong>
-                                <span>Data &amp; Analytics</span>
+                                <span>Vennoot</span>
                             </div>
                         </div>
                         <div class="contact-person">
-                            <img src="images/steyn.jpg" alt="Steyn van der Plas">
+                            <img src="images/steyn.jpg" width="1600" height="1600" loading="lazy" alt="Steyn van der Plas">
                             <div>
                                 <strong>Steyn van der Plas</strong>
-                                <span>Automation &amp; Process</span>
+                                <span>Vennoot</span>
                             </div>
                         </div>
                     </div>
@@ -69,7 +74,7 @@
                 <form class="contact-form contact-page-form" action="https://formspree.io/f/mlglagya" method="POST">
                     <input type="hidden" name="_subject" value="Nieuwe kennismakingsaanvraag DAV Intelligence">
                     <h2>Vertel ons kort waar je hulp bij zoekt</h2>
-                    <p class="form-intro">We reageren zo snel mogelijk met een passend voorstel voor een eerste gesprek.</p>
+                    <p class="form-intro">Een paar regels is genoeg. We nemen contact met je op om je vraag te bespreken.</p>
                     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="form-trap">
                     <input type="hidden" id="ts" name="_ts">
 
@@ -81,11 +86,6 @@
                     <div class="form-group">
                         <label for="contact-email">E-mailadres</label>
                         <input type="email" id="contact-email" name="email" placeholder="je@bedrijf.nl" autocomplete="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact-address">Adres of vestigingsplaats</label>
-                        <input type="text" id="contact-address" name="address" placeholder="Bijvoorbeeld: Utrecht" autocomplete="street-address">
                     </div>
 
                     <div class="form-group">
