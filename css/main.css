@@ -271,6 +271,15 @@ nav {
     justify-content: center;
 }
 
+.services-note {
+    max-width: 800px;
+    margin: 32px auto 0;
+    padding: 18px 22px;
+    border-left: 4px solid var(--accent-green);
+    background-color: var(--white);
+    color: var(--text-light);
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 60px;
@@ -1676,5 +1685,125 @@ footer {
 
     .process-steps {
         grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-hero {
+    padding-bottom: 65px;
+}
+
+.dashboard-hero .eyebrow,
+.dashboard-hero h1,
+.dashboard-hero p {
+    max-width: 760px;
+}
+
+.dashboard-showcase {
+    padding: 56px 0 48px;
+    background: #f4f7f9;
+}
+
+.dashboard-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard-heading .eyebrow {
+    margin-bottom: 8px;
+}
+
+.dashboard-heading h2 {
+    color: #173f45;
+    font-size: 1.8rem;
+}
+
+.dashboard-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex: 0 0 auto;
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+.dashboard-open:hover {
+    color: var(--primary-blue);
+}
+
+.dashboard-frame {
+    width: 100%;
+    aspect-ratio: 1.606 / 1;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #d5e0e3;
+    box-shadow: 0 18px 44px rgba(23, 63, 69, 0.12);
+}
+
+.dashboard-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.dashboard-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 16px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.dashboard-notice i {
+    margin-top: 4px;
+    color: var(--accent-green);
+}
+
+.dashboard-cta {
+    padding: 64px 0 72px;
+    text-align: center;
+}
+
+.dashboard-cta h2 {
+    margin-bottom: 12px;
+    color: #173f45;
+}
+
+.dashboard-cta p:not(.eyebrow) {
+    margin: 0 auto 26px;
+    color: var(--text-light);
+}
+
+.dashboard-cta .btn-cta i {
+    margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .dashboard-frame {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-showcase {
+        padding: 40px 0 36px;
+    }
+
+    .dashboard-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-frame {
+        aspect-ratio: 3 / 4;
     }
 }
